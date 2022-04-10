@@ -1,0 +1,97 @@
+// 1. convert s to array of letters 
+// 2. create empty variable array to write transformed numbers to 
+// 3. create for loop to iterate through 
+// 4. within for loop, first check for instances of 4 and 9 
+// 5. if present, push number into array  
+// 6. write the remaining numbers to the array  
+// 7. sum the array
+
+var romanToInt = function(s) {
+   
+    // converting roman string to array 
+    var sArray = s.split('');
+    
+    // creating new array which will be summed     
+    var n = [ ];
+    
+    // writing for loop to iterate through sArray 
+    for (let i = sArray.length - 1; i >= 0; i-= 1) {
+        
+        // skipping over this iteration if last number
+        if (n[i - 1] == 4 || n[i - 1] == 9 || 
+            n[i - 1] == 40 || n[i - 1] == 90 || 
+            n[i - 1] == 400 || n[i - 1] == 900) continue;
+        
+        // checking for 4
+        if (sArray[i] == 'V' && sArray[i - 1] == 'I') {
+             n.push(4);
+        };
+        
+        // checking for 9
+        if (sArray[i] == 'X' && sArray[i - 1] == 'I') {
+            n.push(9);
+        }
+        
+        // checking for 40
+        if (sArray[i] == 'L' && sArray[i - 1] == 'X') {
+             n.push(40);
+        };
+       
+        // checking for 90
+        if (sArray[i] == 'C' && sArray[i - 1] == 'X') {
+             n.push(90);
+        };
+        
+        // checking for 400
+        if (sArray[i] == 'D' && sArray[i - 1] == 'C') {
+            n.push(400);
+        };
+        
+        // checking for 900
+        if (sArray[i] == 'M' && sArray[i - 1] == 'C') {
+             n.push(900);
+        };
+        
+         // adding in standard numbers 
+        if (sArray[i] == 'I') {
+             n.push(1);
+        };
+        
+        if (sArray[i] == 'V') {
+             n.push(5);
+        };
+        
+        if (sArray[i] == 'X') {
+             n.push(10);
+        };
+        
+        if (sArray[i] == 'L') {
+             n.push(50);
+        };
+        
+        if (sArray[i] == 'C') {
+             n.push(100);
+        };
+        
+        if (sArray[i] == 'D') {
+             n.push(500);
+        };
+        
+        if (sArray[i] == 'M') {
+             n.push(1000);
+        };
+  
+    };
+       
+    // initializing sum to 0
+    var nsum = 0;
+    
+    // summing array to sum 
+    for (let i = 0; i < n.length; i++) {
+        nsum = nsum + n[i];
+    }
+    
+    return n;
+};
+
+romanToInt('MCMXCIV');
