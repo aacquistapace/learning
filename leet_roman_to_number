@@ -91,7 +91,7 @@ var romanToInt = function(s) {
         nsum = nsum + n[i];
     }
     
-    return n;
+    return nsum;
 };
 
 romanToInt('MCMXCIV');
