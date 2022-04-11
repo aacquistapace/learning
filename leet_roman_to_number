@@ -6,6 +6,9 @@
 // 6. write the remaining numbers to the array  
 // 7. sum the array
 
+// issue: my if statement is not properly skipping over the subsequent letter when it is 4, 9 etc... 
+// testing: i) initialize n to 0, ii) adding continue to each 4/9 conditional, iii) instead of using n[i - 1] since i is working backwards, I'll use n.length. Of these tests, ii helped the best. 
+
 var romanToInt = function(s) {
    
     // converting roman string to array 
@@ -25,31 +28,37 @@ var romanToInt = function(s) {
         // checking for 4
         if (sArray[i] == 'V' && sArray[i - 1] == 'I') {
              n.push(4);
+             continue;
         };
         
         // checking for 9
         if (sArray[i] == 'X' && sArray[i - 1] == 'I') {
             n.push(9);
+            continue;
         }
         
         // checking for 40
         if (sArray[i] == 'L' && sArray[i - 1] == 'X') {
              n.push(40);
+             continue;
         };
        
         // checking for 90
         if (sArray[i] == 'C' && sArray[i - 1] == 'X') {
              n.push(90);
+             continue;
         };
         
         // checking for 400
         if (sArray[i] == 'D' && sArray[i - 1] == 'C') {
             n.push(400);
+            continue;
         };
         
         // checking for 900
         if (sArray[i] == 'M' && sArray[i - 1] == 'C') {
              n.push(900);
+            continue;
         };
         
          // adding in standard numbers 
