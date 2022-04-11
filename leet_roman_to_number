@@ -1,13 +1,4 @@
-// 1. convert s to array of letters 
-// 2. create empty variable array to write transformed numbers to 
-// 3. create for loop to iterate through 
-// 4. within for loop, first check for instances of 4 and 9 
-// 5. if present, push number into array  
-// 6. write the remaining numbers to the array  
-// 7. sum the array
-
-// issue: my if statement is not properly skipping over the subsequent letter when it is 4, 9 etc... 
-// testing: i) initialize n to 0, ii) adding continue to each 4/9 conditional, iii) instead of using n[i - 1] since i is working backwards, I'll use n.length. Of these tests, ii helped the best. 
+// https://leetcode.com/problems/roman-to-integer/
 
 var romanToInt = function(s) {
    
