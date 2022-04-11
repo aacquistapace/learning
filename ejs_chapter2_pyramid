@@ -1,0 +1,10 @@
+// https://eloquentjavascript.net/02_program_structure.html
+
+function pyramid() {
+	var print = ''
+	for (i = 0; i < 7; i++) {
+		print = print + '#';
+		console.log(print);
+	}
+}
+pyramid();
