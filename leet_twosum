@@ -1,0 +1,48 @@
+/** Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You can return the answer in any order. 
+*/
+
+
+/** Antonia's planned steps 
+1) create new array initialized to [ ] to store output 
+2) create for loop to pick the first element to analyze 
+3) create another for loop that tests the element against each other element in the array 
+    if equal to target, return the index of: 
+     a) the first element 
+     b) the corresponding element        
+     then break from the loop 
+4) return new array 
+*/
+
+var twoSum = function(nums, target) {
+
+    // 1) creating array to return indices to 
+    var array = [ ];
+    
+    // 2) first for loop to pin first element 
+    for (i = 0; i < nums.length; i++) {
+        
+        var first_element = nums[i]
+        
+        // 3) analyzing first_element against other elements 
+        for (o = 1; o <= nums.length; o++) {
+            
+            var other_elements = nums[o]
+            
+            if ( (first_element + other_elements) == target ) {
+                
+                array.push(i);
+                array.push(o);
+                break;
+                
+            }
+        
+        }
+        
+        if (!array[0]) { } else { break; }
+    }
+    return array;
+};
+
+twoSum([2,7,11,15],9)
