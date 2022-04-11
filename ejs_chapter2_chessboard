@@ -1,0 +1,17 @@
+// https://eloquentjavascript.net/02_program_structure.html
+
+const size = 8; 
+
+function chessboard(size) {
+
+	for (let i = 0; i < size; i++) {
+
+		if((i % 2) == 0) {
+			console.log(' # # # #');
+		} else {
+			console.log('# # # # ');
+		}
+	}
+}
+
+chessboard(size);
