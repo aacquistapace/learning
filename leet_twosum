@@ -1,19 +1,4 @@
-/** Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-You can return the answer in any order. 
-*/
-
-
-/** Antonia's planned steps 
-1) create new array initialized to [ ] to store output 
-2) create for loop to pick the first element to analyze 
-3) create another for loop that tests the element against each other element in the array 
-    if equal to target, return the index of: 
-     a) the first element 
-     b) the corresponding element        
-     then break from the loop 
-4) return new array 
-*/
+// https://leetcode.com/problems/two-sum/
 
 var twoSum = function(nums, target) {
 
