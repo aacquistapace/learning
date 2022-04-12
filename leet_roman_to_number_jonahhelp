@@ -1,0 +1,129 @@
+// 1. convert s to array of letters called sArray
+// 2. create empty variable array to store the transformed numbers called n
+// 3. create a toggle variable called toggle to store if the last element in n was a pair value and initialize it to false 
+// 3. iterate through sArray 
+  // a. if toggle is true:
+       // i.  skip iteration 
+       // ii. set toggle to false 
+  // b. if there is an adjacent pair of IV, IX, XL etc. 
+       // i.  push that number to n
+       // ii. toggle to true 
+  // c. if there isn't a pair: 
+       // i.  push that number to n  
+       // ii. toggle to false 
+// 5. sum the array
+
+var romanToInt = function(s) {
+
+	// convert s to array of letters called sArray
+	var sArray = s.split('');
+
+
+	// create empty array to store transformed numbers
+	var n = [ ];
+
+    // create a toggle variable to store if the last element in n was a pair value 
+    // and initialize it to false
+    var toggle = false;
+
+	// iterate through sArray
+	for (let i = sArray.length - 1; i >= 0; i --) {
+
+		
+		// if toggle is true then set to false and exit loop 	
+		if ( toggle == true ) {
+
+			toggle = false;
+			console.log('toggle effectively skipped');
+            continue;
+
+		}
+
+		// if toggle is false proceed through loop
+		else {
+
+			// checking for 4
+	        if (sArray[i] == 'V' && sArray[i - 1] == 'I') {
+	             n.push(4);
+	             toggle = true;
+	        }
+	        
+	        // checking for 9
+	        else if (sArray[i] == 'X' && sArray[i - 1] == 'I') {
+	            n.push(9);
+	            toggle = true;
+	        }
+	        
+	        // checking for 40
+	        else if (sArray[i] == 'L' && sArray[i - 1] == 'X') {
+	             n.push(40);
+	             toggle = true;
+	        }
+	       
+	        // checking for 90
+	        else if (sArray[i] == 'C' && sArray[i - 1] == 'X') {
+	             n.push(90);
+	             toggle = true;
+	        }
+	        
+	        // checking for 400
+	        else if (sArray[i] == 'D' && sArray[i - 1] == 'C') {
+	            n.push(400);
+	            toggle = true;
+	        }
+	        
+	        // checking for 900
+	        else if (sArray[i] == 'M' && sArray[i - 1] == 'C') {
+	             n.push(900);
+	            toggle = true;
+	        }
+	        
+	        else if (sArray[i] == 'V') {
+             	n.push(5);
+             	toggle = false;
+       	    }
+        
+	        else if (sArray[i] == 'X') {
+	             n.push(10);
+	             toggle = false;
+	        }
+	        
+	        else if (sArray[i] == 'L') {
+	             n.push(50);
+	             toggle = false;
+	        }
+	        
+	        else if (sArray[i] == 'C') {
+	             n.push(100);
+	             toggle = false;
+	        }
+	        
+	        else if (sArray[i] == 'D') {
+	             n.push(500);
+	             toggle = false;
+	        }
+	        
+	        else if (sArray[i] == 'M') {
+	             n.push(1000);
+	             toggle = false;
+	        }
+
+			} // else close 
+
+	} // for loop close 
+
+	// initializing sum to 0
+    var nsum = 0;
+    
+    // summing array to sum 
+    for (let i = 0; i < n.length; i++) {
+        nsum = nsum + n[i];
+    }
+    
+    console.log(n);
+    return n;
+
+}; // function close 
+
+romanToInt('MCMXCIV');
+
