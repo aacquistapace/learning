@@ -1,0 +1,39 @@
+// 0. convert string to lower case variable called lower
+// 1. convert lower to into an array of letters called s
+// 2. create new empty array called a to store indices of vowels, initialize to []
+// 3. iterate through a: 
+//     a. if element is a vowel: 
+//        i. push the element's index + 1 to a 
+//        ii. contine to next iteration 
+//     b. else do nothing
+// 4. return a 
+
+function vowelIndices(word){
+  
+  var lower = word.toLowerCase("");
+  
+  // creating new array of letters 
+  var s = lower.split("");
+  
+  // create new empty array called a 
+  var a = [ ];
+  
+  for (i = 0; i < s.length; i++) {
+    
+    if ( s[i] == 'a'|| s[i] == 'e' || s[i] == 'i' || 
+        s[i] == 'o' || s[i] == 'u' || s[i] == 'y' ) {
+      
+      a.push(i + 1);
+      //console.log("I just pushed" + (i+1));
+      continue;
+      
+    }
+    
+  }
+  
+  return a;
+  console.log(a);
+  
+}
+
+console.log(vowelIndices("Apple"));
