@@ -1,0 +1,30 @@
+// https://leetcode.com/problems/maximum-subarray/submissions/
+// 1. create an empty variable called currentGreatest, initialize to first value 
+// 2. iterate over nums
+//      set startPosition = 0 
+//      set currentSum = 0
+//      iterate over startPosition 
+//        set endPosition = 0  
+//        set currentSum = currentSum + endPosition[i]; 
+//      if currentSum > currentGreatest       
+//        set currentGreatest = currentSum  
+// 3. return currentGreatest      
+
+var maxSubArray = function(nums) {
+    var currentGreatest = nums[0];
+    for (let i = 0; i < nums.length; i++) {
+        var startPosition = [i];
+        var currentSum = 0;
+        for (let j = i + 0; j < nums.length; j++) {
+            var endPosition = j;
+            currentSum = currentSum + nums[endPosition];
+            console.log("Start: " + startPosition + " End: " + endPosition + " Added: " + nums[endPosition] + " Sum: " + currentSum + " Current Greatest: " + currentGreatest);
+            if (currentSum > currentGreatest) {
+              currentGreatest = currentSum;
+            }
+        } 
+        //console.log("My start position = " + startPosition + " My end position = " + endPosition);         
+    }
+    return currentGreatest;   
+};
+console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
