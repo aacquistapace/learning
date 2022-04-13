@@ -6,14 +6,13 @@
 //            add 1 to k 
 //            continue
 //    d. if we're at the end of the loop: 
-//            push a new array to newarray with 2 elements: [n,k]
-//            reset n to the next index in array
+//            and we've found the asnwer, set output to answer
+//            otherwise, update p to the next index 
 
 function findOdd(A) {
   
-  // storage 
-  var newArray = [];
-  console.log("newArray = " + newArray);
+  // answer
+  var output = '';
 
   // iterate through A
   for (i = 0; i < A.length; i++) {
@@ -25,27 +24,28 @@ function findOdd(A) {
     // creating variable k to store frequency of n
     var freq = 0;
     
+    // logging all my inputs
     console.log("A[i] = "+ A[i] + ", n = " + n + ", p = " + p + ", freq = " + freq);
     
-    if ( n === A[i] ) {
-      
-      freq = freq + 1; 
-      continue;
-      
-    }      
+    if ( n === A[i] ) freq ++; 
     
-    else if ( i === (A.length-1)) {
+    else if ( i === (A.length-1) ) {
       
-      newArray.push([n,freq]);
-      p = p + 1;
-      continue;
-      
+      if ( A[i] % 2 == 1 ) {
+        
+        output = n;
+        
+      } else {
+        
+        p = p ++; 
+        continue;
+        
+      } 
     }
-      
-    } 
-    
-  return newArray;
-    
   }
+
+  return output;
+}
+   
   
 console.log(findOdd([1,1,2]))
