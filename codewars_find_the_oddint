@@ -18,26 +18,26 @@ function findOdd(A) {
   for (i = 0; i < A.length; i++) {
     
     // element fix
-    var p = 0;
-    var n = A[p];
+    var pos = 0;
+    var num = A[pos];
     
     // creating variable k to store frequency of n
     var freq = 0;
     
     // logging all my inputs
-    console.log("A[i] = "+ A[i] + ", n = " + n + ", p = " + p + ", freq = " + freq);
+    //console.log("A[i] = "+ A[i] + ", n = " + n + ", p = " + p + ", freq = " + freq);
     
-    if ( n === A[i] ) freq ++; 
+    if ( num === A[i] ) freq ++
     
     else if ( i === (A.length-1) ) {
       
-      if ( A[i] % 2 == 1 ) {
+      if ( freq % 2 === 1 ) {
         
-        output = n;
+        output = num;
         
       } else {
         
-        p = p ++; 
+        pos = pos ++; 
         continue;
         
       } 
