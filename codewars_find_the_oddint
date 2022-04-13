@@ -1,0 +1,51 @@
+// 1. create a new array variable called newarray to store arrays with integer & frequencies, initialize to undefined
+// 2. create a variable called n and initialize it to the first element
+// 2. iterate through A:
+//    a. create a variable called k to track frequency 
+//    b. if n = current element:
+//            add 1 to k 
+//            continue
+//    d. if we're at the end of the loop: 
+//            push a new array to newarray with 2 elements: [n,k]
+//            reset n to the next index in array
+
+function findOdd(A) {
+  
+  // storage 
+  var newArray = [];
+  console.log("newArray = " + newArray);
+
+  // iterate through A
+  for (i = 0; i < A.length; i++) {
+    
+    // element fix
+    var p = 0;
+    var n = A[p];
+    
+    // creating variable k to store frequency of n
+    var freq = 0;
+    
+    console.log("A[i] = "+ A[i] + ", n = " + n + ", p = " + p + ", freq = " + freq);
+    
+    if ( n === A[i] ) {
+      
+      freq = freq + 1; 
+      continue;
+      
+    }      
+    
+    else if ( i === (A.length-1)) {
+      
+      newArray.push([n,freq]);
+      p = p + 1;
+      continue;
+      
+    }
+      
+    } 
+    
+  return newArray;
+    
+  }
+  
+console.log(findOdd([1,1,2]))
