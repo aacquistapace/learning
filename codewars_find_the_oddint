@@ -1,51 +1,25 @@
-// 1. create a new array variable called newarray to store arrays with integer & frequencies, initialize to undefined
-// 2. create a variable called n and initialize it to the first element
-// 2. iterate through A:
-//    a. create a variable called k to track frequency 
-//    b. if n = current element:
-//            add 1 to k 
-//            continue
-//    d. if we're at the end of the loop: 
-//            and we've found the asnwer, set output to answer
-//            otherwise, update p to the next index 
-
 function findOdd(A) {
   
-  // answer
-  var output = '';
-
-  // iterate through A
-  for (i = 0; i < A.length; i++) {
-    
-    // element fix
-    var pos = 0;
-    var num = A[pos];
-    
-    // creating variable k to store frequency of n
-    var freq = 0;
-    
-    // logging all my inputs
-    //console.log("A[i] = "+ A[i] + ", n = " + n + ", p = " + p + ", freq = " + freq);
-    
-    if ( num === A[i] ) freq ++
-    
-    else if ( i === (A.length-1) ) {
-      
-      if ( freq % 2 === 1 ) {
-        
-        output = num;
-        
-      } else {
-        
-        pos = pos ++; 
-        continue;
-        
-      } 
+  var tallies = {};
+  
+  for (let i = 0; i < A.length; i++) {
+    var currentNum = A[i];
+    if (!tallies.hasOwnProperty(currentNum)) {
+      tallies[currentNum] = 1;  
+    }
+    else {
+      tallies[currentNum] = tallies[currentNum] + 1;
     }
   }
-
-  return output;
+  console.log(tallies);
+  const keys = Object.keys(tallies);
+  console.log("keys = " + keys);
+  for (let i = 0; i < keys.length; i++) {
+    console.log("current key value = " + tallies[keys[i]]);
+    if (tallies[keys[i]] % 2 === 1) {
+      console.log("remainder is = " + tallies[keys[i]] % 2);
+      return keys[i];
+    }
+  }
 }
-   
-  
-console.log(findOdd([1,1,2]))
+console.log(findOdd([1,1,2,7,7,7,7]))
