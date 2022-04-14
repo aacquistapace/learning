@@ -1,0 +1,31 @@
+// https://www.codewars.com/kata/523f5d21c841566fde000009/solutions/javascript
+// create empty array called slimArray 
+// loop through each element of a 
+//     set a tracker var called currentElementOfA, initialized to a[i]
+//     set a toggle var called isCurrentElementInB, initialized to false
+//     loop through each element of b 
+//        if currentElementOfA = b[i] 
+//          set isCurrentElementInB true
+//          continue to next iteration
+//     if isCurrentElementInB is false 
+//       push currentElementOfA to slimArray
+// return slimArray
+
+function arrayDiff(a, b) {
+  var slimArray = [];
+  for(let i = 0; i < a.length; i++) {
+    var currentElementOfA = a[i];
+    var isCurrentElementInB = false;
+    for (let j = 0; j < b.length; j++) {
+      if (currentElementOfA === b[j]) {
+        isCurrentElementInB = true;
+      }
+    }
+    if (isCurrentElementInB === false) {
+      slimArray.push(currentElementOfA);
+    }
+  }
+  return slimArray;
+}
+
+console.log(arrayDiff([1,2,3,4,5,6,7],[2,3,4]));
