@@ -1,0 +1,30 @@
+function findPairForSum(integers, target) {
+  // create a new output array
+  var newArray = [];
+  // iterate through integers
+  for (let i = 0; i < integers.length; i++){
+    // create variable to store current integer 
+    var currentInt = integers[i];
+    // iterate through the remaining integers
+    for (let j = i+1; j < integers.length; j++) {
+      // if current integer and remaining integer sum to target 
+      if (currentInt + integers[j] === target) {
+          // push both to the output array
+        newArray.push(currentInt);
+        newArray.push(integers[j]);
+        break;
+          // break the for loop         
+      };
+    };
+    // if the output array has values
+    if (newArray.length > 0) {
+      break;
+    };
+  };
+  // return the new array  
+  return newArray;
+}
+
+// example
+var pair = findPairForSum([3, 34, 4, 12, 5, 2], 9);
+console.log(pair); // --> [4, 5]
