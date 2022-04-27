@@ -1,0 +1,67 @@
+var cardData = [
+  {
+    'issuer/network': 'Visa',  // card issuer (network)
+    prefixes: ['4'],	       // beginning digits
+    lengths: [13, 16, 19]      // lengths of card numbers
+  },
+  {
+    'issuer/network': 'Mastercard',
+    prefixes: ['51', '52', '53', '54', '55'],
+    lengths: [16]
+  },
+  {
+    'issuer/network': 'American Express',
+    prefixes: ['34', '37'],
+    lengths: [15]
+  },
+  {
+    'issuer/network': 'Diner\'s Club',
+    prefixes: ['38', '39'],
+    lengths: [14]
+  }
+];
+
+console.log(cardData[2]["prefixes"].includes("34"));
+
+// check if cardNumber is string
+   // if false, convert to string 
+// create output variable
+// iterate through cardData
+    // if cardNumber length is in lenghts 
+    // AND cardNumber prefix is in prefixes 
+       // set output variable equal to issuer/network
+       // break
+// return output 
+
+function detectNetwork(cardNumber, cardData) {
+  var output = '';
+  var cardPrefix = cardNumber[0];
+  if(cardPrefix === '4') {} else {
+    cardPrefix = cardNumber[0] + cardNumber[1];
+  };
+  var cardLength = cardNumber.length;
+  for(let i=0; i < cardData.length; i++) {
+    if(cardData[i]["prefixes"].includes(cardPrefix) && cardData[i]["lengths"].includes(cardLength)) {
+      output = cardData[i]['issuer/network'];
+      break;
+    };
+    console.log("cardPrefix: ",cardPrefix,"cardLength: ",cardLength,"cardDataPrefixes: ",
+                cardData[i]["prefixes"],"cardDataLength: ",cardData[i]["lengths"],"cardDataIssuer: ",cardData[i]['issuer/network'],
+                "Output: ",output);
+  }
+  console.log("Output has a value: ",output);
+  return output;
+}
+
+// issue: prefix conditional is not working
+   // hypo1: cardPrefix is not in the same format as cardData
+   // test1: changed quote symbols to apostraphe, but nothing changed 
+   // test2: removed the apostraphe and quote symbols 
+
+   // hypo2: includes does not work for strings, so let's try indexOf
+   // test2: try index of for prefix, index of returned -1 every time 
+
+
+// example
+var network = detectNetwork('4123456789111', cardData);
+console.log(network);
