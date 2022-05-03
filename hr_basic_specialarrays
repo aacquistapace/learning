@@ -1,0 +1,18 @@
+// input: array, output: boolean 
+// create result variable initialized to true
+// iterate through arr
+		// if index odd/even does not equal value odd/even
+		// set result to false
+// return result 
+
+function isSpecialArray(arr) {
+	var result = true;
+	for (let i=0; i<arr.length;i++) {
+		if(i%2 != arr[i]%2) {
+			result = false;
+			break;
+		};
+	};
+	return result;
+};
+console.log(isSpecialArray([2, 7, 9, 1, 6, 1, 6, 3]))
